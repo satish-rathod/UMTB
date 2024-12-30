@@ -13,18 +13,23 @@ from datetime import datetime
 LOG_FILE = "camera_monitor.log"
 QUEUE_FILE = "queue.json"
 ALERT_LOG_FILE = "alert_counts.log"
-RESET_INTERVAL = 300  # seconds
+RESET_INTERVAL = 3600  # seconds
 
 # Telegram bot details
 TELEGRAM_BOT_TOKEN = '7802711134:AAELuoLMl9mXncmOuAdYjU_Kw4eHKCdYkT8'
-# TELEGRAM_CHAT_ID = '-1002425156117' # store chat id
-TELEGRAM_CHAT_ID = '1555830976' # test chat id
+TELEGRAM_CHAT_ID = '-1002425156117' # store chat id
+# TELEGRAM_CHAT_ID = '1555830976' # test chat id
 
 # Camera Configuration
 CAMERA_STREAMS = [
     {
-        "name": "Test Camera",
-        "url": "http://192.168.1.246/cgi-bin/eventManager.cgi?action=attach&codes=%5BAlarmLocal%2CVideoMotion%5D&heartbeat=5",
+        "name": "outdoor enterence Camera",
+        "url": "http://192.168.1.205/cgi-bin/eventManager.cgi?action=attach&codes=%5BAlarmLocal%2CVideoMotion%5D&heartbeat=5",
+        "auth": ("admin", "Admin@123")
+    },
+    {
+        "name": "customer window Camera",
+        "url": "http://192.168.1.204/cgi-bin/eventManager.cgi?action=attach&codes=%5BAlarmLocal%2CVideoMotion%5D&heartbeat=5",
         "auth": ("admin", "Admin@123")
     }
 ]
@@ -214,23 +219,48 @@ def periodic_tasks():
 
 def main():
     """Main entry point of the application."""
-    logger.info("Application starting.")
-    load_persistent_queue()
-
-    # Start threads
-    for camera in CAMERA_STREAMS:
-        threading.Thread(target=listen_to_stream, args=(camera,), daemon=True).start()
-    threading.Thread(target=process_message_queue, daemon=True).start()
-    threading.Thread(target=periodic_tasks, daemon=True).start()
-
     try:
+        logger.info("Application starting.")
+        print("Camera Monitor starting...")  # Added for visibility
+        
+        load_persistent_queue()
+
+        # Start threads
+        threads = []
+        for camera in CAMERA_STREAMS:
+            thread = threading.Thread(target=listen_to_stream, args=(camera,), daemon=True)
+            thread.start()
+            threads.append(thread)
+            print(f"Started monitoring camera: {camera['name']}")  # Added for visibility
+
+        queue_thread = threading.Thread(target=process_message_queue, daemon=True)
+        queue_thread.start()
+        threads.append(queue_thread)
+        print("Message queue processor started")  # Added for visibility
+
+        periodic_thread = threading.Thread(target=periodic_tasks, daemon=True)
+        periodic_thread.start()
+        threads.append(periodic_thread)
+        print("Periodic tasks started")  # Added for visibility
+
+        print("\nApplication is running. Press Ctrl+C to exit...")
+        
         while True:
             logger.debug("Main thread heartbeat.")
             time.sleep(1)
+            
     except KeyboardInterrupt:
         logger.info("KeyboardInterrupt detected. Shutting down.")
+        print("\nShutting down gracefully...")
         save_persistent_queue()
         logger.info("Shutdown complete.")
+        print("Shutdown complete.")
+    except Exception as e:
+        logger.error(f"An unexpected error occurred: {str(e)}")
+        print(f"\nError: {str(e)}")
+    finally:
+        print("\nPress Enter to exit...")
+        input()  # This will keep the window open
 
 if __name__ == "__main__":
     main()

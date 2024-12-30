@@ -1,0 +1,8 @@
+2024-12-28 10:39:30,175 - INFO - Application starting.
+2024-12-28 10:39:30,176 - INFO - Starting stream listener for camera: Test Camera
+2024-12-28 10:39:30,178 - INFO - Starting message queue processor.
+2024-12-28 10:39:30,180 - INFO - Starting periodic tasks thread.
+2024-12-28 10:39:30,183 - INFO - Alert counts logged.
+2024-12-28 10:39:30,184 - INFO - Alert counts reset for all cameras.
+2024-12-28 10:40:49,440 - INFO - KeyboardInterrupt detected. Shutting down.
+2024-12-28 10:40:49,442 - INFO - Shutdown complete.

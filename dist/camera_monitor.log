@@ -1,0 +1,11 @@
+2024-12-28 11:31:12,189 - INFO - Application starting.
+2024-12-28 11:31:12,190 - INFO - Starting stream listener for camera: Test Camera
+2024-12-28 11:31:12,190 - INFO - Starting message queue processor.
+2024-12-28 11:31:12,193 - INFO - Starting periodic tasks thread.
+2024-12-28 11:31:12,194 - INFO - Alert counts logged.
+2024-12-28 11:31:12,194 - INFO - Alert counts reset for all cameras.
+2024-12-28 11:32:01,724 - INFO - Message sent to Telegram.
+2024-12-28 11:34:44,422 - INFO - Message sent to Telegram.
+2024-12-28 11:34:53,207 - INFO - Message sent to Telegram.
+2024-12-28 11:35:03,035 - INFO - KeyboardInterrupt detected. Shutting down.
+2024-12-28 11:35:03,037 - INFO - Shutdown complete.
