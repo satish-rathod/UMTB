@@ -22,6 +22,11 @@ TELEGRAM_CHAT_ID = '-1002425156117' # store chat id
 
 # Camera Configuration
 CAMERA_STREAMS = [
+    # {
+    #     "name": "test camera",
+    #     "url": "http://192.168.1.245/cgi-bin/eventManager.cgi?action=attach&codes=%5BAlarmLocal%2CVideoMotion%5D&heartbeat=5",
+    #     "auth": ("admin", "Admin@123")
+    # },
     {
         "name": "outdoor enterence Camera",
         "url": "http://192.168.1.205/cgi-bin/eventManager.cgi?action=attach&codes=%5BAlarmLocal%2CVideoMotion%5D&heartbeat=5",

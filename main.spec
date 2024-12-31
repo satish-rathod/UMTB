@@ -27,7 +27,7 @@ exe = EXE(
     a.zipfiles,
     a.datas,
     [],
-    name='camera_monitor',
+    name='camera_monitor_test',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

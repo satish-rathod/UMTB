@@ -351,6 +351,10 @@
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\\lib\\stringprep.py',
    'PYMODULE'),
+  ('_py_abc',
+   'C:\\Program '
+   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\\lib\\_py_abc.py',
+   'PYMODULE'),
   ('tracemalloc',
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\\lib\\tracemalloc.py',
@@ -370,10 +374,6 @@
   ('_compat_pickle',
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\\lib\\_compat_pickle.py',
-   'PYMODULE'),
-  ('_py_abc',
-   'C:\\Program '
-   'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\\lib\\_py_abc.py',
    'PYMODULE'),
   ('datetime',
    'C:\\Program '
@@ -765,9 +765,9 @@
  [('base_library.zip',
    'C:\\Users\\satis\\OneDrive\\Desktop\\UMTB\\build\\main\\base_library.zip',
    'DATA'),
-  ('certifi\\py.typed',
-   'C:\\Users\\satis\\OneDrive\\Desktop\\UMTB\\venv\\lib\\site-packages\\certifi\\py.typed',
-   'DATA'),
   ('certifi\\cacert.pem',
    'C:\\Users\\satis\\OneDrive\\Desktop\\UMTB\\venv\\lib\\site-packages\\certifi\\cacert.pem',
+   'DATA'),
+  ('certifi\\py.typed',
+   'C:\\Users\\satis\\OneDrive\\Desktop\\UMTB\\venv\\lib\\site-packages\\certifi\\py.typed',
    'DATA')])
